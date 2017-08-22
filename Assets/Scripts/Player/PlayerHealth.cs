@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
-        currentHealth = startingHealth;
+        healthSlider.value = healthSlider.maxValue = currentHealth = startingHealth;
     }
 
 
