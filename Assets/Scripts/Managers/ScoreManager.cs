@@ -8,17 +8,20 @@ public class ScoreManager : MonoBehaviour
 
 
     Text text;
+    static float displayScore = 0f;
+    static float speed = 10f;
 
 
     void Awake ()
     {
         text = GetComponent <Text> ();
-        score = 0;
+        displayScore = score = 0;
     }
 
 
     void Update ()
     {
-        text.text = "Score: " + score;
+        displayScore = Mathf.Lerp(displayScore, score, speed * Time.deltaTime);
+        text.text = "Score: " + Mathf.Ceil(displayScore);
     }
 }
