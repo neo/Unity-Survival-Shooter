@@ -32,7 +32,7 @@ public class EnemyHealth : MonoBehaviour
     {
         if(isSinking)
         {
-            transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
+            transform.Translate (Vector3.down * sinkSpeed * Time.deltaTime);
         }
     }
 
@@ -45,7 +45,7 @@ public class EnemyHealth : MonoBehaviour
         enemyAudio.Play ();
 
         currentHealth -= amount;
-            
+
         hitParticles.transform.position = hitPoint;
         hitParticles.Play();
 

@@ -21,10 +21,10 @@ public class PlayerShooting : MonoBehaviour
     void Awake ()
     {
         shootableMask = LayerMask.GetMask ("Shootable");
-        gunParticles = GetComponent<ParticleSystem> ();
+        gunParticles = GetComponent <ParticleSystem> ();
         gunLine = GetComponent <LineRenderer> ();
-        gunAudio = GetComponent<AudioSource> ();
-        gunLight = GetComponent<Light> ();
+        gunAudio = GetComponent <AudioSource> ();
+        gunLight = GetComponent <Light> ();
     }
 
 
