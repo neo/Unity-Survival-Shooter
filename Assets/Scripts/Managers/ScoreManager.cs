@@ -9,7 +9,7 @@ public class ScoreManager : MonoBehaviour
 
     Text text;
     static float displayScore = 0f;
-    static float speed = 10f;
+    static float speed = 5f;
 
 
     void Awake ()
