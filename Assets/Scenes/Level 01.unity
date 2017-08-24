@@ -834,6 +834,11 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 406284945}
+    - target: {fileID: 114859450611395798, guid: fb71c28161fae451784667e14bb28a71,
+        type: 2}
+      propertyPath: autoShoot
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb71c28161fae451784667e14bb28a71, type: 2}
   m_IsPrefabParent: 0
