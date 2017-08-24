@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using CnControls;
 
 public class PlayerMovement : MonoBehaviour
 {
 	public float Speed = 6f;
+	public bool onScreenControls;
 
 	Vector3 Movement;
 	Animator Animator;
@@ -14,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
 		FloorMask = LayerMask.GetMask ("Floor");
 		Animator = GetComponent<Animator> ();
 		PlayerRigibody = GetComponent<Rigidbody> ();
+		GameObject.FindGameObjectWithTag ("onScreenControls").SetActive (onScreenControls);
+		GetComponentInChildren<PlayerShooting> ().autoShoot = onScreenControls;
 	}
 
 	void FixedUpdate() {
-		float h = Input.GetAxisRaw ("Horizontal");
-		float v = Input.GetAxisRaw ("Vertical");
+		float h = onScreenControls ? CnInputManager.GetAxisRaw ("Horizontal") : Input.GetAxisRaw ("Horizontal");
+		float v = onScreenControls ? CnInputManager.GetAxisRaw ("Vertical") : Input.GetAxisRaw ("Vertical");
 
 		Animate (h, v);
 		Move (h, v);
@@ -34,6 +38,18 @@ public class PlayerMovement : MonoBehaviour
 	}
 
 	void Turn() {
+		if (onScreenControls) {
+			float x = CnInputManager.GetAxisRaw ("TurnX");
+			float z = CnInputManager.GetAxisRaw ("TurnZ");
+
+			if (x == 0f && z == 0f)
+				return;
+
+			Vector3 direction = new Vector3 (x, 0f, z);
+			PlayerRigibody.MoveRotation (Quaternion.LookRotation (direction));
+			return;
+		}
+
 		Ray CameraRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 
 		RaycastHit FloorHit;
