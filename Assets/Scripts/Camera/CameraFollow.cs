@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour {
 
-	public Transform Target;
 	public float Damp = 5f;
 
+	Transform Target;
 	Vector3 offset;
 
 	void Start() {
+		Target = GameObject.FindGameObjectWithTag ("Player").transform;
 		offset = transform.position - Target.position;
 	}
 
