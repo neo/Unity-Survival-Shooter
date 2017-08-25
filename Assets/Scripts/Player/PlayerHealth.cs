@@ -8,8 +8,6 @@ public class PlayerHealth : MonoBehaviour
 {
     public int startingHealth = 100;
     public int currentHealth;
-    public Slider healthSlider;
-    public Image damageImage;
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
@@ -19,6 +17,8 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     PlayerMovement playerMovement;
     PlayerShooting playerShooting;
+    Slider healthSlider;
+    Image damageImage;
     bool isDead;
     bool damaged;
 
@@ -29,6 +29,8 @@ public class PlayerHealth : MonoBehaviour
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
         playerShooting = GetComponentInChildren <PlayerShooting> ();
+        healthSlider = GameObject.Find ("HealthSlider").GetComponent <Slider> ();
+        damageImage = GameObject.Find ("Damage").GetComponent <Image> ();
         healthSlider.value = healthSlider.maxValue = currentHealth = startingHealth;
     }
 

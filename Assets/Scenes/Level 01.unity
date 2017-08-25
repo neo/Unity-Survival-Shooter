@@ -912,16 +912,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114934887983860658, guid: dec981916940844cb86903457e6aaa00,
-        type: 2}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 1224700195}
-    - target: {fileID: 114934887983860658, guid: dec981916940844cb86903457e6aaa00,
-        type: 2}
-      propertyPath: damageImage
-      value: 
-      objectReference: {fileID: 406284945}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dec981916940844cb86903457e6aaa00, type: 2}
   m_IsPrefabParent: 0
