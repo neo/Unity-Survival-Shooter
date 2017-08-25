@@ -108,7 +108,7 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
-  m_NavMeshData: {fileID: 23800000, guid: 28aba9d5d9c4a428984a408be38b23dc, type: 2}
+  m_NavMeshData: {fileID: 0}
 --- !u!1 &64176395
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +587,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29ec9e6de394f4cb59364b0d1691bd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
   Damp: 5
 --- !u!1001 &529181281
 Prefab:
