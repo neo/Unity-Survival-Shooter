@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		if (!Target) Target = GameObject.FindGameObjectWithTag ("Player").transform;
 		Vector3 CameraTargetPosition = Target.position + offset;
 		transform.position = Vector3.Lerp (transform.position, CameraTargetPosition, Damp * Time.deltaTime);
 	}

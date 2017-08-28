@@ -2,13 +2,14 @@
 
 public class GameOverManager : MonoBehaviour
 {
-    PlayerHealth playerHealth;
+    public PlayerHealth playerHealth;
+
+
     Animator anim;
 
 
     void Awake()
     {
-        playerHealth = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerHealth> ();
         anim = GetComponent<Animator>();
     }
 
