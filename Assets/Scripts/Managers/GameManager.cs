@@ -6,6 +6,7 @@ using UnityEngine.XR.iOS;
 public class GameManager : MonoBehaviour {
 
 	public GameObject Game;
+	public float scale;
 
 	GameObject Clone;
 	Vector3 position;
@@ -14,18 +15,20 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 //		Clone = Instantiate (Game, transform);
 		UnityARSessionNativeInterface.ARAnchorAddedEvent += AddAnchor;
+		UnityARSessionNativeInterface.ARAnchorUpdatedEvent += AddAnchor;
+		GameObject.Find ("CameraParent").GetComponent <ContentScaleManager> ().ContentScale *= scale;
 	}
 
 	public void AddAnchor(ARPlaneAnchor arPlaneAnchor) {
 		if (!Clone) {
 			position = UnityARMatrixOps.GetPosition (arPlaneAnchor.transform);
 			rotation = UnityARMatrixOps.GetRotation (arPlaneAnchor.transform);
-			Clone = Instantiate (Game, position, rotation, transform);
+			Clone = Instantiate (Game, position * scale, rotation, transform);
 		}
 	}
 
 	public void Restart () {
 		Destroy (Clone);
-		Clone = Instantiate (Game, position, rotation, transform);
+		Clone = Instantiate (Game, position * scale, rotation, transform);
 	}
 }
