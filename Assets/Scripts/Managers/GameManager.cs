@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 
 	GameObject Clone;
 	Vector3 position;
-	Quaternion rotation;
+	Quaternion rotation = new Quaternion(0, 0, 0, 0);
 
 	void Start () {
 //		Clone = Instantiate (Game, transform);
@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour {
 	public void AddAnchor(ARPlaneAnchor arPlaneAnchor) {
 		if (!Clone) {
 			position = UnityARMatrixOps.GetPosition (arPlaneAnchor.transform);
-			rotation = UnityARMatrixOps.GetRotation (arPlaneAnchor.transform);
 			Clone = Instantiate (Game, position * scale, rotation, transform);
 		}
 	}
