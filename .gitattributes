@@ -69,4 +69,5 @@
 Assets/PostProcessing/* linguist-vendored
 
 # Vendored
-Assets/Standard Assets/* linguist-vendored
+Assets/Standard Assets/**/* linguist-vendored
+Assets/UnityARKitPlugin/**/* linguist-vendored
